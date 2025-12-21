@@ -8,10 +8,14 @@ int main()
     vector <int> a = {1, 2, 3, 4, 5};
     cout << a.size() << endl;
 
+    // OUTPUT: 5
+
     // 2. v.max_size()
     cout << "v.max_size() :" << endl;
     vector <int> b;
     cout << b.max_size() << endl;
+
+    // OUTPUT: 4611686018427387903
 
     // 3. v.capacity()
     cout << "v.capacity() :" << endl;
@@ -32,6 +36,16 @@ int main()
     doubles its capacity.
     */
 
+    /*
+    OUTPUT:
+    0
+    1
+    2
+    4
+    4
+    8
+    */
+
     // 4. v.clear()
     cout << "v.clear() :" << endl;
     vector <int> d;
@@ -47,10 +61,22 @@ int main()
     d.push_back(100);
     cout << d[0] << endl;
 
+    /*
+    OUTPUT:
+    3
+    4
+    0
+    4
+    10
+    100
+    */
+
     // 5. v.empty()
     cout << "v.empty() :" << endl;
     vector <int> e = {1, 2, 3};
     cout << e.empty() << endl;
+
+    // OUTPUT: 0
 
     // 6. v.resize()
     cout << "v.resize() 01:" << endl;
@@ -66,6 +92,8 @@ int main()
     }
     cout << endl;
 
+    // OUTPUT: 10 20
+
     cout << "v.resize() 02:" << endl;
     vector <int> g;
     g.push_back(10);
@@ -79,5 +107,7 @@ int main()
     }
     cout << endl;
     
+    // OUTPUT: 10 20 30 0 0 0 0 100
+
     return 0;
 }
