@@ -13,18 +13,41 @@ int main()
         cin >> a[i];
     }
 
+    sort(a,a+n); // T.C: O(NlogN)
+
     for(int i=0;i<q;i++) // T.C: O(Q)
     {
-        int x;
-        cin >> x;
+        int val;
+        cin >> val;
         int flag = 0;
-        for(int j=0;j<n;j++) // T.C: O(N) (Causes the T.C to become O(Q*N))
+
+        int l = 0;
+        int r = n-1;
+        while(l <= r) // Time Complexity: O(logN)
         {
-            if(a[j] == x)
+            int mid = (l+r)/2;
+            if(a[mid] == val)
             {
                 flag = 1;
+                break;
+            }
+            else if(a[mid] > val)
+            {
+                r = mid-1;
+            }
+            else
+            {
+                l = mid+1;
             }
         }
+
+        // for(int j=0;j<n;j++) // T.C: O(N) (Causes the T.C to become O(Q*N))
+        // {
+        //     if(a[j] == x)
+        //     {
+        //         flag = 1;
+        //     }
+        // }
 
         if(flag == 1)
         {
