@@ -23,7 +23,7 @@ int main()
 
         int l = 0;
         int r = n-1;
-        while(l <= r) // Time Complexity: O(logN)
+        while(l <= r) // T.C: O(logN)
         {
             int mid = (l+r)/2;
             if(a[mid] == val)
