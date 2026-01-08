@@ -55,7 +55,7 @@ int main()
     Node* b = new Node(30);
 
     head->next = a; // Stores address of a in next of head.
-    a->next = b; // Stores address of b in next of  a.
+    a->next = b; // Stores address of b in next of a.
 
     insert_at_tail(head,40); // Calls the function to insert a value at tail.
     print_linked_list(head); // Print the values in a linked list.
