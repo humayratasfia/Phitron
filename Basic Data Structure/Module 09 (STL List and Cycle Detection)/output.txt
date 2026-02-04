@@ -1,4 +1,1 @@
-50
-10
-40
-10
+Cycle Detected
