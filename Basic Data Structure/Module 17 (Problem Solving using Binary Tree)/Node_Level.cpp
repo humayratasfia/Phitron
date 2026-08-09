@@ -33,23 +33,25 @@ int nodeLevel(TreeNode<int>* root, int searchedValue)
     }
 
     while(!q.empty())
-    {
+    {   // All the comments are written based on 1st iteration.
         //01.
         pair<TreeNode<int>*, int> parent = q.front();
-        q.pop(); // Popping from the queue after assigning the front value and the level in a pair variable.
+        q.pop(); // Popping from the queue after copying the values (address of root, level of root) we have in q.front to parent.
 
-        // Separate the Node value and it's level by assigning them to tw different variables.
-        TreeNode<int>* node = parent.first;
-        int level = parent.second;
+        // Separate the Node value (root's address) and it's level by assigning them to two different variables.
+        TreeNode<int>* node = parent.first; // has the address of root. 
+        int level = parent.second; // has level of root.
 
         //02.
         if(node->val == searchedValue)
         {
-            return level; // If value matches then print it's level.
+            return level; // If value of the address in node (root's address) matches then print it's level.
         }
 
         //03.
-        if(node->left)
+        // If doesn't match then push the left and right of the node (root) 
+        // and continue the loop for them to get the SearchedValue.
+        if(node->left) 
             q.push({node->left, level+1});
         if(node->right)
             q.push({node->right, level+1});
