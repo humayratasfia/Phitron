@@ -3,6 +3,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int found = 0;
+
 class Node
 {
     public:
@@ -84,13 +86,13 @@ Node* input_tree()
     return root;
 }
 
-int nodeLevel(Node* root, int searchedlevel)
+void nodeLevel(Node* root, int searchedlevel)
 {
     queue <pair<Node*, int >> q;
 
     if(root != NULL)
     {
-        q.push({root, 1}); // level of root node is 1.
+        q.push({root, 0}); // level of root node is 1.
     }
 
     while(!q.empty())
@@ -103,8 +105,10 @@ int nodeLevel(Node* root, int searchedlevel)
         int level = parent.second; // has level of root.
 
         //02.
+        // If level found, prints the value of the node and updates the flag "found" to confirm.
         if(level == searchedlevel)
         {
+            found = 1;
             cout << node->val << " ";
         }
 
@@ -117,7 +121,6 @@ int nodeLevel(Node* root, int searchedlevel)
             q.push({node->right, level+1});
             
         // If not then keep traversing.
-        
     }
 }
 
@@ -129,5 +132,12 @@ int main()
     cin >> searchedlevel;
     
     nodeLevel(root, searchedlevel);
+
+    // If the searched level not found, the flag "found" doesn't update.
+    // As a result prints "Invalid".
+    if(found == 0)
+    {
+        cout << "Invalid" << endl;
+    }
     return 0;
 }
